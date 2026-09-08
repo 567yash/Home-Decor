@@ -1,0 +1,168 @@
+
+.admin-register-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f1eb;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.admin-register-page form {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  padding: 40px 45px;
+  border-radius: 16px;
+  box-sizing: border-box;
+  box-shadow: 0 15px 40px rgba(60, 45, 35, 0.12);
+  border: 1px solid #eee7df;
+}
+
+.admin-register-page h2 {
+  margin: 0;
+  text-align: center;
+  color: #3e3028;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.admin-register-subtitle {
+  text-align: center;
+  color: #8a7b70;
+  font-size: 14px;
+  margin: 10px 0 30px;
+}
+
+.admin-register-input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.admin-register-input label {
+  display: block;
+  margin-bottom: 8px;
+  color: #4a3a31;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.admin-register-input input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  border: 1px solid #d9cec4;
+  border-radius: 8px;
+  outline: none;
+  background: #fcfaf8;
+  color: #3e3028;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.admin-register-input input::placeholder {
+  color: #aaa09a;
+}
+
+.admin-register-input input:focus {
+  border-color: #8b6f5a;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(139, 111, 90, 0.1);
+}
+
+.admin-register-page form > button[type="submit"] {
+  width: 100%;
+  height: 50px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 8px;
+  background: #4a382e;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin-register-page form > button[type="submit"]:hover {
+  background: #6b5141;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(74, 56, 46, 0.2);
+}
+
+.admin-register-page form > button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.admin-login-link {
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #eee6df;
+}
+
+.admin-login-link p {
+  margin: 0 0 10px;
+  color: #8a7b70;
+  font-size: 13px;
+}
+
+.admin-login-link button {
+  border: none;
+  background: transparent;
+  color: #6b5141;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.admin-login-link button:hover {
+  color: #3e3028;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .admin-register-page {
+    padding: 25px 15px;
+  }
+
+  .admin-register-page form {
+    padding: 30px 25px;
+    border-radius: 12px;
+  }
+
+  .admin-register-page h2 {
+    font-size: 26px;
+  }
+
+  .admin-register-subtitle {
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 400px) {
+  .admin-register-page form {
+    padding: 25px 18px;
+  }
+
+  .admin-register-page h2 {
+    font-size: 24px;
+  }
+
+  .admin-register-input input {
+    height: 46px;
+  }
+
+  .admin-register-page form > button[type="submit"] {
+    height: 48px;
+  }
+}
+
