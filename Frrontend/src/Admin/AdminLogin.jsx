@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../Styles/AdminLogin.css";
+import { API_ENDPOINTS } from "../config/api";
 
 const AdminLogin = () => {
 
@@ -28,7 +29,7 @@ const AdminLogin = () => {
       return;
     }
 
-    axios.get("http://localhost:5000/adminregister")
+    axios.get(API_ENDPOINTS.adminregister)
       .then((response) => {
 
         const admins = response.data;

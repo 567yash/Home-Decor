@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import "../../Styles/EditProduct.css";
+import { API_BASE_URL } from "../../config/api";
 
 const EditProduct = () => {
 
@@ -29,12 +30,12 @@ const EditProduct = () => {
   });
 
   const categories = {
-    furnituredesc: "http://localhost:5000/furnituredesc",
-    homedecordesc: "http://localhost:5000/homedecordesc",
-    furnishingsdesc: "http://localhost:5000/furnishingsdesc",
-    kitchendiningdesc: "http://localhost:5000/kitchendiningdesc",
-    sofasdesc: "http://localhost:5000/sofasdesc",
-    lampdesc: "http://localhost:5000/lampdesc"
+    furnituredesc: `${API_BASE_URL}/furnituredesc`,
+    homedecordesc: `${API_BASE_URL}/homedecordesc`,
+    furnishingsdesc: `${API_BASE_URL}/furnishingsdesc`,
+    kitchendiningdesc: `${API_BASE_URL}/kitchendiningdesc`,
+    sofasdesc: `${API_BASE_URL}/sofasdesc`,
+    lampdesc: `${API_BASE_URL}/lampdesc`
   };
 
   const url = categories[category];

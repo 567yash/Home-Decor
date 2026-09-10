@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import "../Styles/Furnituredetails.css";
+import { API_ENDPOINTS } from "../config/api";
 
 const FurnitureDetails = () => {
   const { id } = useParams();
@@ -10,7 +11,7 @@ const FurnitureDetails = () => {
   const [furniture, setFurniture] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const url = "http://localhost:5000/furnituredesc";
+  const url = API_ENDPOINTS.furnituredesc;
 
   useEffect(() => {
     axios

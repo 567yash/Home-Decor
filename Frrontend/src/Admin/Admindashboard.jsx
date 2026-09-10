@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../Styles/AdminDashboard.css";
+import { API_BASE_URL, API_ENDPOINTS } from "../config/api";
 
 const AdminDashboard = () => {
 
@@ -13,10 +14,12 @@ const AdminDashboard = () => {
   const [totalRevenue, setTotalRevenue] = useState(0);
   const [recentOrders, setRecentOrders] = useState([]);
 
+  const adminName = localStorage.getItem("adminName") || "Admin";
+  const adminEmail = localStorage.getItem("adminEmail") || "";
+
   const handleLogout = () => {
 
-    localStorage.removeItem("admin");
-    localStorage.removeItem("adminId");
+    localStorage.removeItem("adminLoggedIn");
     localStorage.removeItem("adminName");
     localStorage.removeItem("adminEmail");
 
@@ -27,7 +30,7 @@ const AdminDashboard = () => {
   useEffect(() => {
 
     axios
-      .get("http://localhost:5000/user")
+      .get(API_ENDPOINTS.user)
       .then(res => {
 
         setTotalUsers(res.data.length);
@@ -40,7 +43,7 @@ const AdminDashboard = () => {
       });
 
     axios
-      .get("http://localhost:5000/orders")
+      .get(API_ENDPOINTS.orders)
       .then(res => {
 
         setTotalOrders(res.data.length);
@@ -67,12 +70,12 @@ const AdminDashboard = () => {
       });
 
     const productUrls = [
-      "http://localhost:5000/furnituredesc",
-      "http://localhost:5000/homedecordesc",
-      "http://localhost:5000/furnishingsdesc",
-      "http://localhost:5000/sofadesc",
-      "http://localhost:5000/kitchendesc",
-      "http://localhost:5000/lampdesc"
+      `${API_BASE_URL}/furnituredesc`,
+      `${API_BASE_URL}/homedecordesc`,
+      `${API_BASE_URL}/furnishingsdesc`,
+      `${API_BASE_URL}/sofadesc`,
+      `${API_BASE_URL}/kitchendesc`,
+      `${API_BASE_URL}/lampdesc`
     ];
 
     const productRequests = productUrls.map(url =>

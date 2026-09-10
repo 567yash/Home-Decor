@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../../Styles/AdminUsers.css";
+import { API_ENDPOINTS } from "../config/api";
 
 const AdminUsers = () => {
 
@@ -9,7 +10,7 @@ const AdminUsers = () => {
 
   const [users, setUsers] = useState([]);
 
-  const url = "http://localhost:5000/user";
+  const url = API_ENDPOINTS.user;
 
   const getUsers = () => {
 

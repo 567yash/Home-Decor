@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react'
 import "../Styles/SofasMattress.css"
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 
 const SofasMattress = () => {
 
   const [SofasMattress, setSofasMattress] = useState([]);
   const [favourites, setFavourites] = useState([]);
 
-  const url = "http://localhost:5000/sofas";
-  const favouriteUrl = "http://localhost:5000/favourites";
+  const url = API_ENDPOINTS.sofas;
+  const favouriteUrl = API_ENDPOINTS.favourites;
 
 
   const getsofa = () => {

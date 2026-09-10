@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react'
 import "../Styles/KitchenDining.css"
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 
 const KitchenDining = () => {
 
   const [KitchenDining, setKitchenDining] = useState([]);
   const [favourites, setFavourites] = useState([]);
 
-  const url = "http://localhost:5000/kitchenimg";
-  const favouriteUrl = "http://localhost:5000/favourites";
+  const url = API_ENDPOINTS.kitchen;
+  const favouriteUrl = API_ENDPOINTS.favourites;
 
 
   const getkitchen = () => {

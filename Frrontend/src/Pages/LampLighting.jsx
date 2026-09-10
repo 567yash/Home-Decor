@@ -3,13 +3,14 @@ import React, { useEffect, useState } from "react";
 import "../Styles/LampLighting.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_ENDPOINTS } from "../config/api";
 
 const LampLighting = () => {
   const [LampLighting, setLampLighting] = useState([]);
   const [favourites, setFavourites] = useState([]);
 
-  const url = "http://localhost:5000/lampimg";
-  const favouriteUrl = "http://localhost:5000/favourites";
+  const url = API_ENDPOINTS.lamp;
+  const favouriteUrl = API_ENDPOINTS.favourites;
 
   const getlamplights = () => {
     axios

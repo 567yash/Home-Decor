@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import "../Styles/Sofadetails.css";
+import { API_ENDPOINTS } from '../config/api';
 
 const Sofadetails = () => {
 
@@ -12,7 +13,7 @@ const Sofadetails = () => {
 
   const [sofa, setSofa] = useState(null);
 
-  const url = "http://localhost:5000/sofadesc";
+  const url = API_ENDPOINTS.sofadesc;
 
 
   useEffect(() => {

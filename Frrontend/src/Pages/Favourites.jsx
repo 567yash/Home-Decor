@@ -3,12 +3,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../Styles/Favourites.css";
 import { useNavigate } from "react-router-dom";
+import { API_ENDPOINTS } from "../config/api";
 
 const Favourites = () => {
   const [favourites, setFavourites] = useState([]);
   const navigate = useNavigate();
 
-  const url = "http://localhost:5000/favourites";
+  const url = API_ENDPOINTS.favourites;
 
   useEffect(() => {
     axios

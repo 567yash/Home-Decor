@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../Styles/Checkout.css";
+import { API_ENDPOINTS } from "../config/api";
 
 const Checkout = () => {
 
@@ -120,7 +121,7 @@ const Checkout = () => {
     try {
 
       const response = await axios.post(
-        "http://localhost:5000/orders",
+        API_ENDPOINTS.orders,
         order
       );
 

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../Styles/Orders.css";
+import { API_ENDPOINTS } from "../config/api";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/orders")
+      .get(API_ENDPOINTS.orders)
       .then((response) => {
         setOrders(response.data);
       })

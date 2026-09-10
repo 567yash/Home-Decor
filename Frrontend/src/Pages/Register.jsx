@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import "../Styles/Register.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_ENDPOINTS } from "../config/api";
 
 const Register = () => {
   const navigate = useNavigate();
 
-  const url = "http://localhost:5000/user";
+  const url = API_ENDPOINTS.user;
 
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");

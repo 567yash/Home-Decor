@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "../Styles/Login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_ENDPOINTS } from "../config/api";
 
 const Login = () => {
 
-  const url = "http://localhost:5000/user";
+  const url = API_ENDPOINTS.user;
 
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../../Styles/AdminProfile.css";
+import { API_ENDPOINTS } from "../config/api";
 
 const AdminProfile = () => {
 
@@ -16,7 +17,7 @@ const AdminProfile = () => {
 
   const [editMode, setEditMode] = useState(false);
 
-  const url = "http://localhost:5000/adminregister";
+  const url = API_ENDPOINTS.adminregister;
 
 
   useEffect(() => {

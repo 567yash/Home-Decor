@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import "../Styles/Furnituredetails.css";
+import { API_ENDPOINTS } from '../config/api';
 
 const FurnishingsDetails = () => {
 
@@ -12,7 +13,7 @@ const FurnishingsDetails = () => {
 
   const [furnishing, setFurnishing] = useState(null);
 
-  const url = "http://localhost:5000/furnishingsdesc";
+  const url = API_ENDPOINTS.furnishingsdesc;
 
 
   useEffect(() => {

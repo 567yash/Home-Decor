@@ -1,0 +1,30 @@
+services:
+  # Backend JSON-Server Web Service
+  - type: web
+    name: home-decor-backend
+    runtime: node
+    plan: free
+    rootDir: Backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+
+  # Frontend React + Vite Static Site
+  - type: web
+    name: home-decor-frontend
+    runtime: static
+    rootDir: Frrontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: home-decor-backend
+          property: host

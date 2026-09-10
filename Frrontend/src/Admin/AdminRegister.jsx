@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "../Styles/AdminRegister.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_ENDPOINTS } from "../config/api";
 
 const AdminRegister = () => {
 
-  let url = "http://localhost:5000/adminregister";
+  let url = API_ENDPOINTS.adminregister;
 
   const navigate = useNavigate();
 

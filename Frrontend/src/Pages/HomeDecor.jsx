@@ -3,14 +3,15 @@ import React, { useEffect, useState } from 'react';
 import "../Styles/HomeDecor.css";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 
 const HomeDecor = () => {
 
   let [HomeDecor, setHomeDecor] = useState([]);
   let [favourites, setFavourites] = useState([]);
 
-  let url = "http://localhost:5000/homedecor";
-  let favouriteUrl = "http://localhost:5000/favourites";
+  let url = API_ENDPOINTS.homedecor;
+  let favouriteUrl = API_ENDPOINTS.favourites;
 
   const gethomedecor = () => {
 

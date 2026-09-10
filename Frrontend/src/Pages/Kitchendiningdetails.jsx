@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import "../Styles/KitchenDiningdetails.css";
+import { API_ENDPOINTS } from '../config/api';
 
 const KitchenDiningDetails = () => {
 
@@ -12,7 +13,7 @@ const KitchenDiningDetails = () => {
 
   const [kitchen, setKitchen] = useState(null);
 
-  const url = "http://localhost:5000/kitchendesc";
+  const url = API_ENDPOINTS.kitchendesc;
 
 
   useEffect(() => {

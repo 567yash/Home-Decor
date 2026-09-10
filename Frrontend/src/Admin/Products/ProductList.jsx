@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../../Styles/ProductList.css";
+import { API_BASE_URL } from "../../config/api";
 
 const ProductList = () => {
 
@@ -13,27 +14,33 @@ const ProductList = () => {
   const categories = [
     {
       name: "Furniture",
-      url: "http://localhost:5000/furnituredesc"
+      key: "furnituredesc",
+      url: `${API_BASE_URL}/furnituredesc`
     },
     {
       name: "Home Decor",
-      url: "http://localhost:5000/homedecordesc"
+      key: "homedecordesc",
+      url: `${API_BASE_URL}/homedecordesc`
     },
     {
       name: "Furnishings",
-      url: "http://localhost:5000/furnishingsdesc"
+      key: "furnishingsdesc",
+      url: `${API_BASE_URL}/furnishingsdesc`
     },
     {
       name: "Kitchen & Dining",
-      url: "http://localhost:5000/kitchendesc"
+      key: "kitchendesc",
+      url: `${API_BASE_URL}/kitchendesc`
     },
     {
       name: "Sofas & Mattress",
-      url: "http://localhost:5000/sofadesc"
+      key: "sofadesc",
+      url: `${API_BASE_URL}/sofadesc`
     },
     {
       name: "Lamp & Lighting",
-      url: "http://localhost:5000/lampdesc"
+      key: "lampdesc",
+      url: `${API_BASE_URL}/lampdesc`
     }
   ];
 
@@ -41,7 +48,7 @@ const ProductList = () => {
   const getProducts = () => {
 
     const selectedCategory = categories.find(
-      item => item.url.includes(category)
+      item => item.key === category
     );
 
     if (!selectedCategory) {
@@ -86,7 +93,7 @@ const ProductList = () => {
     }
 
     const selectedCategory = categories.find(
-      item => item.url.includes(category)
+      item => item.key === category
     );
 
     axios
@@ -136,12 +143,12 @@ const ProductList = () => {
           <button
             key={item.name}
             className={
-              category === item.url.split("5000/")[1]
+              category === item.key
                 ? "category-active"
                 : ""
             }
             onClick={() =>
-              setCategory(item.url.split("5000/")[1])
+              setCategory(item.key)
             }
           >
             {item.name}

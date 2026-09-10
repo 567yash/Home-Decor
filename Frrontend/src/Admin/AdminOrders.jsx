@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../../Styles/AdminOrders.css";
+import { API_ENDPOINTS } from "../config/api";
 
 const AdminOrders = () => {
 
@@ -9,7 +10,7 @@ const AdminOrders = () => {
 
   const [orders, setOrders] = useState([]);
 
-  const url = "http://localhost:5000/orders";
+  const url = API_ENDPOINTS.orders;
 
   const getOrders = () => {
 

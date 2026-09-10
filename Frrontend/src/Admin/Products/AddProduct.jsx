@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../../Styles/AddProduct.css";
+import { API_BASE_URL } from "../../config/api";
 
 const AddProduct = () => {
 
@@ -31,27 +32,33 @@ const AddProduct = () => {
   const categories = [
     {
       name: "Furniture",
-      url: "http://localhost:5000/furnituredesc"
+      key: "furnituredesc",
+      url: `${API_BASE_URL}/furnituredesc`
     },
     {
       name: "Home Decor",
-      url: "http://localhost:5000/homedecordesc"
+      key: "homedecordesc",
+      url: `${API_BASE_URL}/homedecordesc`
     },
     {
       name: "Furnishings",
-      url: "http://localhost:5000/furnishingsdesc"
+      key: "furnishingsdesc",
+      url: `${API_BASE_URL}/furnishingsdesc`
     },
     {
       name: "Kitchen & Dining",
-      url: "http://localhost:5000/kitchendiningdesc"
+      key: "kitchendiningdesc",
+      url: `${API_BASE_URL}/kitchendiningdesc`
     },
     {
       name: "Sofas & Mattress",
-      url: "http://localhost:5000/sofasdesc"
+      key: "sofasdesc",
+      url: `${API_BASE_URL}/sofasdesc`
     },
     {
       name: "Lamp & Lighting",
-      url: "http://localhost:5000/lampdesc"
+      key: "lampdesc",
+      url: `${API_BASE_URL}/lampdesc`
     }
   ];
 
@@ -71,7 +78,7 @@ const AddProduct = () => {
     e.preventDefault();
 
     const selectedCategory = categories.find(
-      item => item.url.split("5000/")[1] === category
+      item => item.key === category
     );
 
     if (!selectedCategory) {
@@ -198,7 +205,7 @@ const AddProduct = () => {
 
                   <option
                     key={item.name}
-                    value={item.url.split("5000/")[1]}
+                    value={item.key}
                   >
                     {item.name}
                   </option>
