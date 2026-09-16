@@ -4,3 +4,5 @@ dist
 .env
 .env.local
 .DS_Store
+Backend/package copy.json
+Backend/package-lock copy.json

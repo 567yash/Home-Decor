@@ -127,12 +127,6 @@ const ProductList = () => {
           <p>Manage all Home Decor products</p>
         </div>
 
-        <button
-          onClick={() => navigate("/admin/products/add")}
-        >
-          + Add Product
-        </button>
-
       </div>
 
 

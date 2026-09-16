@@ -1,21 +1,43 @@
-import { spawn } from 'node:child_process';
+import { spawn, execSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
 import fs from 'node:fs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const require = createRequire(import.meta.url);
 const port = process.env.PORT || '5000';
 const host = '0.0.0.0';
 const dbFile = path.join(__dirname, 'Json', 'user.json');
-const binPath = path.join(__dirname, 'node_modules', 'json-server', 'lib', 'bin.js');
 
 if (!fs.existsSync(dbFile)) {
   console.error(`Database file not found at: ${dbFile}`);
   process.exit(1);
 }
 
-if (!fs.existsSync(binPath)) {
-  console.error(`json-server binary not found at: ${binPath}. Make sure to run 'npm install' first.`);
+// Dynamically resolve json-server package and binary
+let binPath;
+try {
+  const pkgPath = require.resolve('json-server/package.json');
+  const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+  const binRel = typeof pkg.bin === 'string' ? pkg.bin : (pkg.bin && pkg.bin['json-server']);
+  binPath = path.resolve(path.dirname(pkgPath), binRel);
+} catch {
+  console.log('json-server not found. Running npm install in Backend...');
+  try {
+    execSync('npm install', { cwd: __dirname, stdio: 'inherit' });
+    const pkgPath = require.resolve('json-server/package.json');
+    const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+    const binRel = typeof pkg.bin === 'string' ? pkg.bin : (pkg.bin && pkg.bin['json-server']);
+    binPath = path.resolve(path.dirname(pkgPath), binRel);
+  } catch (installErr) {
+    console.error('Failed to install and resolve json-server:', installErr);
+    process.exit(1);
+  }
+}
+
+if (!binPath || !fs.existsSync(binPath)) {
+  console.error(`json-server binary could not be resolved at: ${binPath}`);
   process.exit(1);
 }
 

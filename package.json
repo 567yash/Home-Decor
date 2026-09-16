@@ -2,10 +2,13 @@
   "name": "home-decor-root",
   "private": true,
   "scripts": {
+    "build": "npm --prefix Backend install && npm --prefix Frrontend install && npm --prefix Frrontend run build",
+    "start": "npm --prefix Backend install && npm --prefix Backend start",
     "dev": "npm --prefix Frrontend run dev",
-    "build": "npm --prefix Frrontend install && npm --prefix Frrontend run build",
-    "start": "npm --prefix Backend start",
-    "backend": "npm --prefix Backend start",
+    "backend": "npm --prefix Backend install && npm --prefix Backend start",
     "frontend": "npm --prefix Frrontend run dev"
+  },
+  "dependencies": {
+    "json-server": "^0.17.4"
   }
 }

@@ -107,7 +107,7 @@ const AddProduct = () => {
         }
 
         const data = {
-          id: String(newId),
+          id:newId,
           img: product.img,
           name: product.name,
           brand: product.brand,
