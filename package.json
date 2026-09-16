@@ -2,7 +2,10 @@
   "name": "home-decor-root",
   "private": true,
   "scripts": {
+    "dev": "npm --prefix Frrontend run dev",
     "build": "npm --prefix Frrontend install && npm --prefix Frrontend run build",
-    "start": "npm --prefix Backend start"
+    "start": "npm --prefix Backend start",
+    "backend": "npm --prefix Backend start",
+    "frontend": "npm --prefix Frrontend run dev"
   }
 }
