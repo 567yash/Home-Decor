@@ -1,5 +1,5 @@
 import React from 'react'
-import "../../Styles/AdminCategories.css"
+import "../Styles/AdminCategories.css"
 
 const AdminCategories = () => {
   return (

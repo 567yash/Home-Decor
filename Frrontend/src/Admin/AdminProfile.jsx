@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../../Styles/AdminProfile.css";
+import "../Styles/AdminProfile.css";
 import { API_ENDPOINTS } from "../config/api";
 
 const AdminProfile = () => {
