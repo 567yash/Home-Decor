@@ -1,13 +1,13 @@
 let rawBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 if (!rawBaseUrl) {
-  // If running locally in development, default to localhost:5000
+  // If running locally in development, default to home-decor-backend-oqqy.onrender.com:5000
   if (
     typeof window !== "undefined" &&
-    (window.location.hostname === "localhost" ||
+    (window.location.hostname === "home-decor-backend-oqqy.onrender.com" ||
       window.location.hostname === "127.0.0.1")
   ) {
-    rawBaseUrl = "http://localhost:5000";
+    rawBaseUrl = "http://home-decor-backend-oqqy.onrender.com:5000";
   } else {
     // In production (e.g. Vercel or Render), default to your live deployed backend
     rawBaseUrl = "https://home-decor-3.onrender.com";
