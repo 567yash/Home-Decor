@@ -1,0 +1,10 @@
+{
+  "outputDirectory": "Frrontend/dist",
+  "buildCommand": "npm --prefix Frrontend install && npm --prefix Frrontend run build",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
