@@ -1,4 +1,18 @@
-let rawBaseUrl = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+let rawBaseUrl = import.meta.env.VITE_API_BASE_URL;
+
+if (!rawBaseUrl) {
+  // If running locally in development, default to localhost:5000
+  if (
+    typeof window !== "undefined" &&
+    (window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1")
+  ) {
+    rawBaseUrl = "http://localhost:5000";
+  } else {
+    // In production (e.g. Vercel or Render), default to your live deployed backend
+    rawBaseUrl = "https://home-decor-3.onrender.com";
+  }
+}
 
 if (rawBaseUrl && !rawBaseUrl.startsWith("http://") && !rawBaseUrl.startsWith("https://")) {
   rawBaseUrl = `https://${rawBaseUrl}`;
